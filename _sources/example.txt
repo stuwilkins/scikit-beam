@@ -1,0 +1,97 @@
+.. _tutorial:
+
+Jupyter Notebooks
+=================
+
+
+demos
+-----
+
+.. toctree::
+   :maxdepth: 1
+
+
+   example/Generate_ROI_labeled_arrays
+
+dpc
+----
+
+.. toctree::
+   :maxdepth: 1
+
+
+   example/dpc_demo
+
+histogramming
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+
+   example/Histogram2D
+
+   example/Histogram2D-RingAveraging
+
+   example/histogram3D
+
+inelastic
+---------
+
+.. toctree::
+   :maxdepth: 1
+
+
+   example/IXS-alignment-clean
+
+reciprocal_space
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+
+   example/gisaxs
+
+   example/recip_example
+
+speckle
+-------
+
+.. toctree::
+   :maxdepth: 1
+
+
+   example/speckle-plotting
+
+   example/X-ray_Speckle_Visibility_Spectroscopy
+
+time_correlation
+----------------
+
+.. toctree::
+   :maxdepth: 1
+
+
+   example/Check_remove_bad_imgs_using_same_image
+
+   example/Multi_tau_one_time_correlation_example
+
+   example/partial-multi-tau
+
+   example/Removing_bad_images_one_time_correlation
+
+   example/two-time-correlation
+
+   example/two-time-with-partial-data
+
+   example/XPCS_fitting_with_lmfit
+
+xrf
+----
+
+.. toctree::
+   :maxdepth: 1
+
+
+   example/plot_xrf_spectrum

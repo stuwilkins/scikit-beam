@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>core.correlation Module &mdash; scikit-beam 0.0.7+80.g1dbde28 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.7+80.g1dbde28',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="scikit-beam 0.0.7+80.g1dbde28 documentation" href="../../../index.html" />
+    <link rel="up" title="Core API" href="index.html" />
+    <link rel="next" title="core.dpc Module" href="dpc.html" />
+    <link rel="prev" title="skbeam.core.constants.xrs.HKL.l" href="generated/skbeam.core.constants.xrs.HKL.l.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          scikit-beam</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.7+80.g1dbde28</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../../tutorial.html">Tutorial</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction to scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installing scikit-beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html#updating-your-installation">Updating Your Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../whats_new.html">What&#8217;s new</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Complete Reference (API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev_guide/index.html">Development Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../example.html">Jupyter Notebooks</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal"><span class="pre">core.correlation</span></code> Module</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="module-skbeam.core.correlation">
+<span id="core-correlation-module"></span><h1><code class="xref py py-mod docutils literal"><span class="pre">core.correlation</span></code> Module<a class="headerlink" href="#module-skbeam.core.correlation" title="Permalink to this headline">¶</a></h1>
+<p>This module is for functions specific to time correlation</p>
+<dl class="function">
+<dt id="skbeam.core.correlation.auto_corr_scat_factor">
+<code class="descclassname">skbeam.core.correlation.</code><code class="descname">auto_corr_scat_factor</code><span class="sig-paren">(</span><em>lags</em>, <em>beta</em>, <em>relaxation_rate</em>, <em>baseline=1</em><span class="sig-paren">)</span><a class="headerlink" href="#skbeam.core.correlation.auto_corr_scat_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>This model will provide normalized intensity-intensity time
+correlation data to be minimized.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>lags</strong> : array</p>
+<blockquote>
+<div><p>delay time</p>
+</div></blockquote>
+<p><strong>beta</strong> : float</p>
+<blockquote>
+<div><p>optical contrast (speckle contrast), a sample-independent
+beamline parameter</p>
+</div></blockquote>
+<p><strong>relaxation_rate</strong> : float</p>
+<blockquote>
+<div><p>relaxation time associated with the samples dynamics.</p>
+</div></blockquote>
+<p><strong>baseline</strong> : float, optional</p>
+<blockquote>
+<div><p>baseline of one time correlation
+equal to one for ergodic samples</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>g2</strong> : array</p>
+<blockquote class="last">
+<div><p>normalized intensity-intensity time autocorreltion</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[R6]</a></td><td>L. Li, P. Kwasniewski, D. Orsi, L. Wiegart, L. Cristofolini,
+C. Caronna and A. Fluerasu, &#8221; Photon statistics and speckle
+visibility spectroscopy with partially coherent X-rays,&#8221;
+J. Synchrotron Rad. vol 21, p 1288-1295, 2014</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="skbeam.core.correlation.lazy_one_time">
+<code class="descclassname">skbeam.core.correlation.</code><code class="descname">lazy_one_time</code><span class="sig-paren">(</span><em>image_iterable</em>, <em>num_levels</em>, <em>num_bufs</em>, <em>labels</em>, <em>internal_state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#skbeam.core.correlation.lazy_one_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generator implementation of 1-time multi-tau correlation</p>
+<p>If you do not want multi-tau correlation, set num_levels to 1 and
+num_bufs to the number of images you wish to correlate</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>image_iterable</strong> : iterable of 2D arrays</p>
+<p><strong>num_levels</strong> : int</p>
+<blockquote>
+<div><p>how many generations of downsampling to perform, i.e., the depth of
+the binomial tree of averaged frames</p>
+</div></blockquote>
+<p><strong>num_bufs</strong> : int, must be even</p>
+<blockquote>
+<div><p>maximum lag step to compute in each generation of downsampling</p>
+</div></blockquote>
+<p><strong>labels</strong> : array</p>
+<blockquote>
+<div><p>Labeled array of the same shape as the image stack.
+Each ROI is represented by sequential integers starting at one.  For
+example, if you have four ROIs, they must be labeled 1, 2, 3,
+4. Background is labeled as 0</p>
+</div></blockquote>
+<p><strong>labels</strong> : array</p>
+<blockquote>
+<div><p>Labeled array of the same shape as the image stack.
+Each ROI is represented by sequential integers starting at one.  For
+example, if you have four ROIs, they must be labeled 1, 2, 3,
+4. Background is labeled as 0</p>
+</div></blockquote>
+<p><strong>internal_state</strong> : namedtuple, optional</p>
+<blockquote class="last">
+<div><p>internal_state is a bucket for all of the internal state of the
+generator. It is part of the <cite>results</cite> object that is yielded from
+this generator</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The normalized intensity-intensity time-autocorrelation function
+is defined as</p>
+<div class="math">
+\[\begin{split}g_2(q, t') = \frac{&lt;I(q, t)I(q, t + t')&gt; }{&lt;I(q, t)&gt;^2}\end{split}\]\[\begin{split}t' &gt; 0\end{split}\]</div>
+<p>Here, <code class="docutils literal"><span class="pre">I(q,</span> <span class="pre">t)</span></code> refers to the scattering strength at the momentum
+transfer vector <code class="docutils literal"><span class="pre">q</span></code> in reciprocal space at time <code class="docutils literal"><span class="pre">t</span></code>, and the brackets
+<code class="docutils literal"><span class="pre">&lt;...&gt;</span></code> refer to averages over time <code class="docutils literal"><span class="pre">t</span></code>. The quantity <code class="docutils literal"><span class="pre">t'</span></code> denotes
+the delay time</p>
+<p>This implementation is based on published work. <a class="reference internal" href="#r7" id="id2">[R7]</a></p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R7]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> D. Lumma, L. B. Lurio, S. G. J. Mochrie and M. Sutton,
+&#8220;Area detector based photon correlation in the regime of
+short data batches: Data reduction for dynamic x-ray
+scattering,&#8221; Rev. Sci. Instrum., vol 70, p 3274-3289, 2000.</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="skbeam.core.correlation.lazy_two_time">
+<code class="descclassname">skbeam.core.correlation.</code><code class="descname">lazy_two_time</code><span class="sig-paren">(</span><em>labels</em>, <em>images</em>, <em>num_frames</em>, <em>num_bufs</em>, <em>num_levels=1</em>, <em>two_time_internal_state=None</em><span class="sig-paren">)</span><a class="headerlink" href="#skbeam.core.correlation.lazy_two_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generator implementation of two-time correlation</p>
+<p>If you do not want multi-tau correlation, set num_levels to 1 and
+num_bufs to the number of images you wish to correlate</p>
+<p>Multi-tau correlation uses a scheme to achieve long-time correlations
+inexpensively by downsampling the data, iteratively combining successive
+frames.</p>
+<p>The longest lag time computed is num_levels * num_bufs.
+** see comments on multi_tau_auto_corr</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>labels</strong> : array</p>
+<blockquote>
+<div><p>labeled array of the same shape as the image stack;
+each ROI is represented by a distinct label (i.e., integer)</p>
+</div></blockquote>
+<p><strong>images</strong> : iterable of 2D arrays</p>
+<blockquote>
+<div><p>dimensions are: (rr, cc), iterable of 2D arrays</p>
+</div></blockquote>
+<p><strong>num_frames</strong> : int</p>
+<blockquote>
+<div><p>number of images to use
+default is number of images</p>
+</div></blockquote>
+<p><strong>num_bufs</strong> : int, must be even</p>
+<blockquote>
+<div><p>maximum lag step to compute in each generation of
+downsampling</p>
+</div></blockquote>
+<p><strong>num_levels</strong> : int, optional</p>
+<blockquote class="last">
+<div><p>how many generations of downsampling to perform, i.e.,
+the depth of the binomial tree of averaged frames
+default is one</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The two-time correlation function is defined as</p>
+<div class="math">
+\[\begin{split}C(q,t_1,t_2) = \frac{&lt;I(q,t_1)I(q,t_2)&gt;}{&lt;I(q, t_1)&gt;&lt;I(q,t_2)&gt;}\end{split}\]</div>
+<p>Here, the ensemble averages are performed over many pixels of detector,
+all having the same <code class="docutils literal"><span class="pre">q</span></code> value. The average time or age is equal to
+<code class="docutils literal"><span class="pre">(t1+t2)/2</span></code>, measured by the distance along the <code class="docutils literal"><span class="pre">t1</span> <span class="pre">=</span> <span class="pre">t2</span></code> diagonal.
+The time difference <code class="docutils literal"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">|t1</span> <span class="pre">-</span> <span class="pre">t2|</span></code>, with is distance from the
+<code class="docutils literal"><span class="pre">t1</span> <span class="pre">=</span> <span class="pre">t2</span></code> diagonal in the perpendicular direction.
+In the equilibrium system, the two-time correlation functions depend only
+on the time difference <code class="docutils literal"><span class="pre">t</span></code>, and hence the two-time correlation contour
+lines are parallel.</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[R8]</a></td><td>A. Fluerasu, A. Moussaid, A. Mandsen and A. Schofield, &#8220;Slow dynamics
+and aging in collodial gels studied by x-ray photon correlation
+spectroscopy,&#8221; Phys. Rev. E., vol 76, p 010401(1-4), 2007.</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="skbeam.core.correlation.multi_tau_auto_corr">
+<code class="descclassname">skbeam.core.correlation.</code><code class="descname">multi_tau_auto_corr</code><span class="sig-paren">(</span><em>num_levels</em>, <em>num_bufs</em>, <em>labels</em>, <em>images</em><span class="sig-paren">)</span><a class="headerlink" href="#skbeam.core.correlation.multi_tau_auto_corr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wraps generator implementation of multi-tau</p>
+<p>Original code(in Yorick) for multi tau auto correlation
+author: Mark Sutton</p>
+<p>For parameter description, please reference the docstring for
+lazy_one_time. Note that there is an API difference between this function
+and <cite>lazy_one_time</cite>. The <cite>images</cite> arugment is at the end of this function
+signature here for backwards compatibility, but is the first argument in
+the <cite>lazy_one_time()</cite> function. The semantics of the variables remain
+unchanged.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="skbeam.core.correlation.one_time_from_two_time">
+<code class="descclassname">skbeam.core.correlation.</code><code class="descname">one_time_from_two_time</code><span class="sig-paren">(</span><em>two_time_corr</em><span class="sig-paren">)</span><a class="headerlink" href="#skbeam.core.correlation.one_time_from_two_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>This will provide the one-time correlation data from two-time
+correlation data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>two_time_corr</strong> : array</p>
+<blockquote>
+<div><p>matrix of two time correlation
+shape (number of labels(ROI&#8217;s), number of frames, number of frames)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>one_time_corr</strong> : array</p>
+<blockquote class="last">
+<div><p>matrix of one time correlation
+shape (number of labels(ROI&#8217;s), number of frames)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="skbeam.core.correlation.results">
+<code class="descclassname">skbeam.core.correlation.</code><code class="descname">results</code><a class="headerlink" href="#skbeam.core.correlation.results" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal"><span class="pre">correlation_results</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="skbeam.core.correlation.two_time_corr">
+<code class="descclassname">skbeam.core.correlation.</code><code class="descname">two_time_corr</code><span class="sig-paren">(</span><em>labels</em>, <em>images</em>, <em>num_frames</em>, <em>num_bufs</em>, <em>num_levels=1</em><span class="sig-paren">)</span><a class="headerlink" href="#skbeam.core.correlation.two_time_corr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wraps generator implementation of multi-tau two time correlation</p>
+<p>This function computes two-time correlation
+Original code : author: Yugang Zhang</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>results</strong> : namedtuple</p>
+<p>For parameter definition, see the docstring for the <cite>lazy_two_time()</cite></p>
+<p class="last">function in this module</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="skbeam.core.correlation.two_time_state_to_results">
+<code class="descclassname">skbeam.core.correlation.</code><code class="descname">two_time_state_to_results</code><span class="sig-paren">(</span><em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#skbeam.core.correlation.two_time_state_to_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the internal state of the two time generator into usable results</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>state</strong> : namedtuple</p>
+<blockquote>
+<div><p>The internal state that is yielded from <cite>lazy_two_time</cite></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>results</strong> : namedtuple</p>
+<blockquote class="last">
+<div><p>A results object that contains the two time correlation results
+and the lag steps</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../../_sources/resource/api/core/correlation.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014-2015 Brookhaven National Lab.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

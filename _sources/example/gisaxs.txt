@@ -1,0 +1,178 @@
+
+GISAXS (Grazing-incidence small angle X-ray scattering geometry)
+================================================================
+
+More details skbeam.core.recip module: gisaxs function.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(https://github.com/scikit-beam/scikit-beam/blob/master/skbeam/core/recip.py)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+    import skbeam.core.recip as recip
+    import skbeam.core.utils as utils
+    
+    import numpy as np
+    
+    import matplotlib.pyplot as plt
+    %matplotlib inline
+
+get the inputs
+--------------
+
+.. code:: python
+
+    inc_x0 = 1871   # incident beam x component in pixels
+    inc_y0 = 339    # incident beam y component in pixels
+    refl_x0 = 1871   # refelcted beam x component in pixels
+    refl_y0 = 811    # refelcted beam y component in pixels    
+    dist_sample = 4.81  # distance to the sample in mm
+    wavelength = 1.3776 #  wavelength of the X-ray beam in um
+    
+    dpix = 7.5000004e-02*1000  # pixel size
+
+
+.. code:: python
+
+    pixel_size = (dpix, dpix)
+    incident_beam = (inc_x0, inc_y0)
+    reflected_beam = (refl_x0, refl_y0)
+    detector_size = (2167, 2070)
+
+.. code:: python
+
+    g_output = recip.gisaxs(incident_beam, reflected_beam, pixel_size,
+                            detector_size, dist_sample, wavelength,
+                            theta_i=0.0)
+
+Incident Angle
+~~~~~~~~~~~~~~
+
+.. code:: python
+
+    g_output.alpha_i    
+
+
+
+
+.. parsed-literal::
+
+    0.0036797674392063757
+
+
+
+Tilt Angle
+----------
+
+.. code:: python
+
+    g_output.tilt_angle
+
+
+
+
+.. parsed-literal::
+
+    0.0
+
+
+
+.. code:: python
+
+    x_ticks = []
+    y_ticks = []
+    for i in range(0, 2250, 250):
+        x_ticks.append(round(g_output.alpha_f[0, i], 4))
+        y_ticks.append(round(g_output.alpha_f[i, 0], 5))
+        
+    fig, ax = plt.subplots(figsize=(10, 8))
+    im = ax.imshow(g_output.alpha_f, cmap="viridis", origin="lower")
+    ax.set_title("Exit angle map")
+    ax.set_xlabel('radians')
+    ax.set_ylabel('radians')
+    ax.set_xticks(np.arange(0, 2250, 250))
+    ax.set_xticklabels(x_ticks)
+    ax.set_yticks(np.arange(0, 2250, 250))
+    ax.set_yticklabels(y_ticks)
+    ax.grid()
+    fig.colorbar(im)
+    plt.show()
+
+
+
+.. image:: gisaxs_files/gisaxs_10_0.png
+
+
+Qz map ( z component of scattering wave vector)
+-----------------------------------------------
+
+.. code:: python
+
+    x_ticks = []
+    y_ticks = []
+    for i in range(0, 2250, 250):
+        x_ticks.append(round(g_output.qz[0, i], 4))
+        y_ticks.append(round(g_output.qz[i, 0], 5))
+        
+    fig, ax = plt.subplots(figsize=(10, 8))
+    im = ax.imshow(g_output.qz, cmap="viridis", origin="lower")
+    ax.set_title("Qz map")
+    ax.set_xlabel('q 'r'$\AA^{-1}$')
+    ax.set_ylabel('q 'r'$\AA^{-1}$')
+    ax.set_xticks(np.arange(0, 2250, 250))
+    ax.set_xticklabels(x_ticks)
+    ax.set_yticks(np.arange(0, 2250, 250))
+    ax.set_yticklabels(y_ticks)
+    ax.grid()
+    fig.colorbar(im)
+    plt.show()
+
+
+
+.. image:: gisaxs_files/gisaxs_12_0.png
+
+
+Qr (parrell component of the scattering wave vector)
+----------------------------------------------------
+
+.. code:: python
+
+    xr_ticks = []
+    yr_ticks = []
+    for i in range(0, 2250, 250):
+        xr_ticks.append(round(g_output.qr[0, i], 4))
+        yr_ticks.append(round(g_output.qr[i, 0], 5))
+    
+    fig, ax = plt.subplots(figsize=(10, 8))
+    im = ax.imshow(g_output.qr, cmap="viridis", origin="lower")
+    ax.set_title("Qr map")
+    ax.set_xlabel('q 'r'$\AA^{-1}$')
+    ax.set_ylabel('q 'r'$\AA^{-1}$')
+    ax.set_xticks(np.arange(0, 2250, 250))
+    ax.set_xticklabels(xr_ticks)
+    ax.set_yticks(np.arange(0, 2250, 250))
+    ax.set_yticklabels(yr_ticks)
+    ax.grid()
+    fig.colorbar(im)
+    plt.show()
+
+
+
+.. image:: gisaxs_files/gisaxs_14_0.png
+
+
+.. code:: python
+
+    import skbeam
+    skbeam.__version__
+
+
+
+
+.. parsed-literal::
+
+    '0.0.7+36.gfafc487'
+
+
+
